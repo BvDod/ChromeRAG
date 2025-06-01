@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Popup with Settings</title>
+  <style>
+    body {
+      width: 450px;
+      height: 450px;
+      font-family: Arial, sans-serif;
+      padding: 10px;
+    }
+    #settingsView {
+      display: none;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    /* Slider container */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+  }
+
+  /* Hide default checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: gray;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+
+  .slider::before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: green;
+  }
+
+  input:checked + .slider::before {
+    transform: translateX(24px);
+  }
+
+  /* Label */
+  .toggle-container {
+    display: flex;
+    align-items: center;  /* Aligns vertically */
+    gap: 10px;            /* Space between slider and label */
+  }
+
+  #toggleLabel {
+    font-size: 16px;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- Main View -->
+  <div id="mainView">
+    <h1>Chrome RAG</h1>
+    <button id="openSettingsBtn">Settings</button>
+  </div>
+
+
+  <!-- Settings View -->
+  <div id="settingsView">
+    <h1>Settings</h1>
+    <div>
+      <label for="username">Username:</label></dic>
+      <input type="text" id="usernameInput" placeholder="Enter your name" />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="usernamePassword" placeholder="Enter your password" />
+    </div>
+
+  <div class="toggle-container">
+    <label for="switch">Connection:</label>
+    <label class="switch">
+      <input type="checkbox" id="toggleSlider">
+      <span class="slider round"></span>
+    </label>
+    <span id="toggleLabel">Local</span>
+  </div>
+
+    <button id="saveSettingsBtn">Save</button>
+    <button id="backBtn">Back</button>
+    <p id="statusMsg"></p>
+  
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
